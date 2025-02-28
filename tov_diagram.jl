@@ -113,7 +113,7 @@ function TOV_solver(vP::Array{Float64},ve::Array{Float64},dr::Float64,P0::Float6
     r = 0.0
 	enp = x->lerp_1d(vP,ve,x)
 
-	while xP ≥ 1e-21
+	while xP ≥ 7e-21
         xM,xP,r = stepRK4TOV(xP,xM,r,dr,enp)
 		#println(r," ",xP," ",xM)
     end
