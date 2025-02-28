@@ -113,7 +113,7 @@ function TOV_solver(vP::Array{Float64},ve::Array{Float64},dr::Float64,P0::Float6
     r = 0.0
 	enp = x->lerp_1d(vP,ve,x)
 
-	while xP ≥ 1e-12
+	while xP ≥ 1e-21
         xM,xP,r = stepRK4TOV(xP,xM,r,dr,enp)
 		#println(r," ",xP," ",xM)
     end
@@ -126,7 +126,9 @@ end
 		M = Array{Float64}(undef,N)
 		R = Array{Float64}(undef,N)
 
-		PP = LinRange(nutogu,P[length(P)]*nutogu,N)
+		# PP = LinRange(nutogu,P[length(P)]*nutogu,N)
+		PPlog = range(log(nutogu), log(P[end]*nutogu), N)
+		PP = exp.(PPlog)
 
 		for i in 1:N
 
@@ -166,50 +168,50 @@ begin
 	using DataFrames
 	using CSV
 end
-begin 
-begin
-	data = File_TOV("/home/arthuro/tov.jl/data/nov_07_24/data2.csv",1000)
-	df = DataFrame((M=data[1],R=data[2]))
-	CSV.write("MR_diag_TRS_14",df)
-end
+# begin 
+# begin
+# 	data = File_TOV("data/nov_07_24/data2.csv",1000)
+# 	df = DataFrame((M=data[1],R=data[2]))
+# 	CSV.write("MR_diag_TRS_14",df)
+# end
 
-begin
-	data = File_TOV("/home/arthuro/tov.jl/data/nov_07_24/data1.csv",1000)
-	df = DataFrame((M=data[1],R=data[2]))
-	CSV.write("MR_diag_TRS_15",df)
-end
+# begin
+# 	data = File_TOV("data/nov_07_24/data1.csv",1000)
+# 	df = DataFrame((M=data[1],R=data[2]))
+# 	CSV.write("MR_diag_TRS_15",df)
+# end
 
-begin
-	data = File_TOV("/home/arthuro/tov.jl/data/nov_07_24/data_MIT.csv",1000)
-	df = DataFrame((M=data[1],R=data[2]))
-	CSV.write("MR_diag_MIT",df)
-end
+# begin
+# 	data = File_TOV("data/nov_07_24/data_MIT.csv",1000)
+# 	df = DataFrame((M=data[1],R=data[2]))
+# 	CSV.write("MR_diag_MIT",df)
+# end
 
-begin
-	data = File_TOV("/home/arthuro/tov.jl/data/nov_07_24/data_mss13.csv",1000)
-	df = DataFrame((M=data[1],R=data[2]))
-	CSV.write("MR_diag_MSS13",df)
-end
+# begin
+# 	data = File_TOV("data/nov_07_24/data_mss13.csv",1000)
+# 	df = DataFrame((M=data[1],R=data[2]))
+# 	CSV.write("MR_diag_MSS13",df)
+# end
 
-begin
-	data = File_TOV("/home/arthuro/tov.jl/data/nov_07_24/data_mss14.csv",1000)
-	df = DataFrame((M=data[1],R=data[2]))
-	CSV.write("MR_diag_MSS14",df)
-end
+# begin
+# 	data = File_TOV("/home/arthuro/tov.jl/data/nov_07_24/data_mss14.csv",1000)
+# 	df = DataFrame((M=data[1],R=data[2]))
+# 	CSV.write("MR_diag_MSS14",df)
+# end
 
-begin
-	data = File_TOV("/home/arthuro/tov.jl/data/nov_07_24/data_mss15.csv",1000)
-	df = DataFrame((M=data[1],R=data[2]))
-	CSV.write("MR_diag_MSS15",df)
-end
-end 
+# begin
+# 	data = File_TOV("/home/arthuro/tov.jl/data/nov_07_24/data_mss15.csv",1000)
+# 	df = DataFrame((M=data[1],R=data[2]))
+# 	CSV.write("MR_diag_MSS15",df)
+# end
+# end 
 
-begin 
-	plot(File_TOV("/home/arthuro/tov.jl/data/nov_07_24/data3.csv",1000),label="TRS 1.3")
-	plot!(File_TOV("/home/arthuro/tov.jl/data/nov_07_24/data2.csv",1000),label="TRS 1.4")
-	plot!(File_TOV("/home/arthuro/tov.jl/data/nov_07_24/data1.csv",1000),label="TRS 1.5")
-	plot!(File_TOV("/home/arthuro/tov.jl/data/nov_07_24/data_MIT.csv",1000),label="MIT")
-	plot!(File_TOV("/home/arthuro/tov.jl/data/nov_07_24/data_mss13.csv",1000),label="MSS 1.3")
-	plot!(File_TOV("/home/arthuro/tov.jl/data/nov_07_24/data_mss14.csv",1000),label="MSS 1.4")
-	plot!(File_TOV("/home/arthuro/tov.jl/data/nov_07_24/data_mss15.csv",1000),label="MSS 1.5")
-end
+# begin 
+# 	plot(File_TOV("/home/arthuro/tov.jl/data/nov_07_24/data3.csv",1000),label="TRS 1.3")
+# 	plot!(File_TOV("/home/arthuro/tov.jl/data/nov_07_24/data2.csv",1000),label="TRS 1.4")
+# 	plot!(File_TOV("/home/arthuro/tov.jl/data/nov_07_24/data1.csv",1000),label="TRS 1.5")
+# 	plot!(File_TOV("/home/arthuro/tov.jl/data/nov_07_24/data_MIT.csv",1000),label="MIT")
+# 	plot!(File_TOV("/home/arthuro/tov.jl/data/nov_07_24/data_mss13.csv",1000),label="MSS 1.3")
+# 	plot!(File_TOV("/home/arthuro/tov.jl/data/nov_07_24/data_mss14.csv",1000),label="MSS 1.4")
+# 	plot!(File_TOV("/home/arthuro/tov.jl/data/nov_07_24/data_mss15.csv",1000),label="MSS 1.5")
+# end
