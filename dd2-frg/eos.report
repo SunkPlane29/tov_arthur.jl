@@ -3,7 +3,7 @@
  # number of grid points in temperature T,minimum temperature, maximum temperature [MeV]
       1     0.00000000E+00     0.00000000E+00
  # number of grid points in baryon number density n_b,minimum baryon number density, maximum baryon number density [fm^-3]
-    236     0.69183097E-09     0.10813507E+01
+    249     0.69183097E-09     0.11272334E+01
  # number of grid points in charge fraction Y_q,minimum charge fraction, maximum charge fraction [dimensionless]
       1     0.00000000E+00     0.00000000E+00
  # number of grid points in magnetic field strength B,minimum magnetic field, maximum magnetic field [Gauss]
@@ -15,7 +15,7 @@
  # microscopic data exist (1) or not (0)
            0
  # total number of table entries
-         236
+         249
  # number of additional quantities in eos.thermo
            0
  # number of phases
@@ -49,6 +49,6 @@
  # symmetry incompressibility K_sym [MeV]
      0.000
  # maximum relative error in free energy per baryon at point
-  0.13401938E-02     1 222   1
+  0.12691165E-02     1 223   1
  # maximum relative error in internal energy per baryon at point
-  0.13401938E-02     1 222   1
+  0.12691165E-02     1 223   1

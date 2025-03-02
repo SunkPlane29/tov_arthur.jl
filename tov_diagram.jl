@@ -138,7 +138,7 @@ end
 
 		#scatter(RR,MM)
 
-		return R/1000,M
+		return PP*(nutogu^(-1)), R/1000,M
 
 	end
 
