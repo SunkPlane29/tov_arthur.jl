@@ -3,9 +3,9 @@
  # indices of regular, additional and derivative quantities
            1          24
  # number of pairs and quadruples for composition data (see table 3.2/3.3)
-          17           0
+           3           0
  # indices for pairs and quadruples for composition data
-         500         501         502           0           1          11          10         100         112         111         110         121         120          23          22          21          20
+          10          11           0
  # number of microscopic quantities (see section 4.2.4)
            0
  # indices of microscopic quantities

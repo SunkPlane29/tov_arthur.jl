@@ -3,7 +3,7 @@
  # number of grid points in temperature T,minimum temperature, maximum temperature [MeV]
       1     0.00000000E+00     0.00000000E+00
  # number of grid points in baryon number density n_b,minimum baryon number density, maximum baryon number density [fm^-3]
-    954     0.10000000E-06     0.12000000E+01
+    301     0.62950000E-10     0.12866909E+01
  # number of grid points in charge fraction Y_q,minimum charge fraction, maximum charge fraction [dimensionless]
       1     0.00000000E+00     0.00000000E+00
  # number of grid points in magnetic field strength B,minimum magnetic field, maximum magnetic field [Gauss]
@@ -13,27 +13,27 @@
  # composition data exist (1) or not (0)
            1
  # microscopic data exist (1) or not (0)
-           0
+           1
  # total number of table entries
-         954
+         301
  # number of additional quantities in eos.thermo
-           3
- # number of phases
-           3
- # indices of phases (see data sheet)
-           4           1           2
- # number of particles
-          17
- # indices of particles (see manual)
-         500         501         502           0           1          11          10         100         112         111         110         121         120          23          22          21          20
- # number of particle sets
-           1
- # indices of particle sets (see manual and data sheet)
-           1
- # number of quantities in eos.micro
            0
- # indices of quantities (see manual)
+ # number of phases
+           2
+ # indices of phases (see data sheet)
+           1           2
+ # number of particles
+           3
+ # indices of particles (see manual)
+          10          11           0
+ # number of particle sets
+           0
+ # indices of particle sets (see manual and data sheet)
 
+ # number of quantities in eos.micro
+           6
+ # indices of quantities (see manual)
+       10041       11041       10051       11051       10052       11052
  # saturation density of symmetric nuclear matter [fm^-3]
    0.00000
  # binding energy B_sat per baryon at saturation [MeV]
@@ -49,6 +49,6 @@
  # symmetry incompressibility K_sym [MeV]
      0.000
  # maximum relative error in free energy per baryon at point
- -0.92043161E-04     1 355   1
+  0.21498521E-05     1 148   1
  # maximum relative error in internal energy per baryon at point
- -0.92043161E-04     1 355   1
+  0.21498521E-05     1 148   1

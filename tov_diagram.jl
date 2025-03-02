@@ -107,13 +107,13 @@ function step_EULER(p::Float64,m::Float64,r::Float64,dr::Float64,enp::Function):
 
 	end
 
-function TOV_solver(vP::Array{Float64},ve::Array{Float64},dr::Float64,P0::Float64)::Array{Float64}
+function TOV_solver(vP::Array{Float64},ve::Array{Float64},dr::Float64,P0::Float64,eps::Float64)::Array{Float64}
     xP = P0
     xM = 0.0
     r = 0.0
 	enp = x->lerp_1d(vP,ve,x)
 
-	while xP ≥ 7e-21
+	while xP ≥ eps
         xM,xP,r = stepRK4TOV(xP,xM,r,dr,enp)
 		#println(r," ",xP," ",xM)
     end
@@ -121,7 +121,7 @@ function TOV_solver(vP::Array{Float64},ve::Array{Float64},dr::Float64,P0::Float6
     return [xM*c^2/(G1*1.989e30),r]
 end
 
-	function MR_diagram(P::Array{Float64},e::Array{Float64},N::Int64)
+	function MR_diagram(P::Array{Float64},e::Array{Float64},N::Int64,eps::Float64)
 
 		M = Array{Float64}(undef,N)
 		R = Array{Float64}(undef,N)
@@ -132,7 +132,7 @@ end
 
 		for i in 1:N
 
-			M[i],R[i] = TOV_solver(P*nutogu,e*nutogu,1.0,PP[i])
+			M[i],R[i] = TOV_solver(P*nutogu,e*nutogu,1.0,PP[i],eps)
 
 		end
 
